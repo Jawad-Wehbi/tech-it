@@ -9,3 +9,36 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+//  create enum_user_types
+enum user_type {
+  COMPANY
+  ASSIGNEE
+}
+
+//  create enum_assignee_types
+enum assignee_type {
+  EMPLOYEE
+  APPLICANT
+}
+
+//  create enum_question_type
+enum question_type {
+  MCQUESTION
+  CODING_QUESTION
+}
+
+//  create enum_topics
+enum topic {
+  PYTHON
+  JAVA
+  DATABASES
+  ALGORITHMS
+  DATA_STRUCTURE
+  JAVASCRIPT
+  C_SHARP
+  RUBY
+  C
+  SQL
+  PHP
+  COMPANY_TESTS
+}
