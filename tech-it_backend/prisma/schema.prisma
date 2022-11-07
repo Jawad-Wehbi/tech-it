@@ -42,3 +42,142 @@ enum topic {
   PHP
   COMPANY_TESTS
 }
+
+//  create table_users
+model users {
+  id        Int        @id @default(autoincrement())
+  companies companies?
+  assignees assignees?
+  email     String     @unique
+  name      String
+  password  String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @default(now())
+  user_type user_type
+}
+
+// create table_companies
+model companies {
+  id               Int              @id @unique @default(autoincrement())
+  company_logo     String           @db.VarChar(255)
+  employees_number String           @db.VarChar(255)
+  company_brief    String           @db.VarChar(500)
+  assignees        assignees?
+  user_id          Int              @unique
+  user             users            @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  companies_tests  companies_tests?
+}
+
+// create table_assignees
+model assignees {
+  id              Int              @id @unique @default(autoincrement())
+  position        String           @db.VarChar(255)
+  assignee_type   assignee_type
+  user_id         Int              @unique
+  user            users            @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  company_id      Int              @unique
+  company         companies        @relation(fields: [company_id], references: [id], onDelete: Cascade)
+  tests_assignees tests_assignees?
+}
+
+//  create table_tests
+model tests {
+  id              Int              @id @unique @default(autoincrement())
+  topic           topic
+  test_title      String           @db.VarChar(255)
+  test_details    String           @db.VarChar(500)
+  companies_tests companies_tests?
+  tests_assignees tests_assignees?
+  tests_questions tests_questions?
+}
+
+// create table_companies_tests
+model companies_tests {
+  test_id    Int       @unique
+  test       tests     @relation(fields: [test_id], references: [id], onDelete: Cascade)
+  company_id Int       @unique
+  company    companies @relation(fields: [company_id], references: [id], onDelete: Cascade)
+
+  @@id([test_id, company_id])
+}
+
+// create table_tests_assignees
+model tests_assignees {
+  id               Int               @id @unique @default(autoincrement())
+  test_id          Int               @unique
+  test             tests             @relation(fields: [test_id], references: [id], onDelete: Cascade)
+  assignee_id      Int               @unique
+  assignees        assignees         @relation(fields: [assignee_id], references: [id], onDelete: Cascade)
+  assignee_answers assignee_answers?
+}
+
+// create table_questions
+model questions {
+  id               Int               @id @unique @default(autoincrement())
+  question_title   String            @db.VarChar(255)
+  max_score        String            @db.VarChar(255)
+  customized       Boolean           @default(false)
+  question_details String            @db.VarChar(500)
+  topic            topic
+  assignee_answers assignee_answers?
+  tests_questions  tests_questions?
+  coding_answers   coding_answers?
+  mcq_answers      mcq_answers?
+}
+
+// create table_assignee_answers
+model assignee_answers {
+  id                      Int                      @id @unique @default(autoincrement())
+  score                   String                   @db.VarChar(255)
+  question_id             Int                      @unique
+  question                questions                @relation(fields: [question_id], references: [id], onDelete: Cascade)
+  tests_assignees_id      Int                      @unique
+  tests_assignees         tests_assignees          @relation(fields: [tests_assignees_id], references: [id], onDelete: Cascade)
+  coding_assignee_answers coding_assignee_answers?
+  mcq_selected_choices    mcq_selected_choices?
+}
+
+// create table_coding_assignee_answers
+model coding_assignee_answers {
+  id                 Int              @id @unique @default(autoincrement())
+  code_body          String           @db.VarChar(255)
+  output             String           @db.VarChar(500)
+  assignee_answer_id Int              @unique
+  assignee_answer    assignee_answers @relation(fields: [assignee_answer_id], references: [id], onDelete: Cascade)
+}
+
+// create table_mcq_selected_choices
+model mcq_selected_choices {
+  id                 Int              @id @unique @default(autoincrement())
+  selected_choice    String           @db.VarChar(255)
+  output             String           @db.VarChar(500)
+  assignee_answer_id Int              @unique
+  assignee_answer    assignee_answers @relation(fields: [assignee_answer_id], references: [id], onDelete: Cascade)
+}
+
+// create table_tests_questions
+model tests_questions {
+  test_id     Int       @unique
+  test        tests     @relation(fields: [test_id], references: [id], onDelete: Cascade)
+  question_id Int       @unique
+  question    questions @relation(fields: [question_id], references: [id], onDelete: Cascade)
+
+  @@id([test_id, question_id])
+}
+
+// create table_coding_answers
+model coding_answers {
+  id            Int       @id @unique @default(autoincrement())
+  coding_answer String    @db.VarChar(2000)
+  question_id   Int       @unique
+  question      questions @relation(fields: [question_id], references: [id], onDelete: Cascade)
+}
+
+// create table_mcq_answers
+model mcq_answers {
+  id          Int       @id @unique @default(autoincrement())
+  mcq_answer  String    @db.VarChar(2000)
+  is_correct  Boolean   @default(false)
+  question_id Int       @unique
+  question    questions @relation(fields: [question_id], references: [id], onDelete: Cascade)
+}
