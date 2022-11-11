@@ -1,8 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
-    extend: { fontFamily: { roboto: "Roboto", inter: "Inter" } },
+    extend: { fontFamily: { roboto: "Roboto", inter: "Inter" },
     colors: {
       white: "#fff",
       indigo: { "100": "#5a4ae3", "200": "#4f3fd8" },
@@ -19,5 +21,7 @@ module.exports = {
       "3xl": "50px",
     },
   },
-  corePlugins: { preflight: false },
-};
+},
+
+  plugins: [],
+}
