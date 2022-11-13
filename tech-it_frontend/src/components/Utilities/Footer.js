@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <nav className="absolute bottom-[0px] left-[0px] bg-indigo-200 w-screen h-[100px] overflow-hidden flex flex-row p-[22px_50px] box-border items-center justify-between">
+    <nav className="bottom-[0px] left-[0px] bg-indigo-200 w-[100%] h-[100px] overflow-hidden flex flex-row p-[22px_50px] box-border items-center justify-between">
       <div className="h-[55px] flex flex-row items-center justify-center">
         <div className="relative text-base font-extrabold font-roboto text-white text-left inline-block">
           Privacy Policy
