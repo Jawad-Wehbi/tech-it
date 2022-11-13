@@ -43,8 +43,8 @@ enum topic {
   COMPANY_TESTS
 }
 
-//  create table_users
-model users {
+//  create table_Users
+model Users {
   id        Int        @id @default(autoincrement())
   companies companies?
   assignees assignees?
@@ -64,7 +64,7 @@ model companies {
   company_brief    String           @db.VarChar(500)
   assignees        assignees?
   user_id          Int              @unique
-  user             users            @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  user             Users            @relation(fields: [user_id], references: [id], onDelete: Cascade)
   companies_tests  companies_tests?
 }
 
@@ -74,7 +74,7 @@ model assignees {
   position        String           @db.VarChar(255)
   assignee_type   assignee_type
   user_id         Int              @unique
-  user            users            @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  user            Users            @relation(fields: [user_id], references: [id], onDelete: Cascade)
   company_id      Int              @unique
   company         companies        @relation(fields: [company_id], references: [id], onDelete: Cascade)
   tests_assignees tests_assignees?
