@@ -1,28 +1,30 @@
-const prisma = require("../config/db.config");
-
-// const { PrismaClient } = require('@prisma/client');
-// const prisma = new PrismaClient();
+// const prisma = require("../config/db.config");
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
 
 require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const jwt = require('../utils/jwt');
+const createError = require("http-errors");
 
   const register = async(data) =>  {
 
     console.log('data :>> ', data); 
       const { email } = data;
       data.password = bcrypt.hashSync(data.password, 8);
-      let user = prisma.users.create({
+      let user = await prisma.Users.create({
         data
     })
     data.accessToken = await jwt.signAccessToken(user);
      
     return data; 
   }
-       
-  const login = async(data) =>  {
-    const { email, password } = data;
-    const user = await prisma.user.findUnique({
+        
+  const login = async (data) =>  {
+
+    console.log('------> data :>> ', data);
+    const { email, password } = data;  
+    const user = await prisma.Users.findUnique({
         where: {
             email
         }
