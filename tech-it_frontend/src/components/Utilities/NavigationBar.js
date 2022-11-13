@@ -20,13 +20,13 @@ const NavigationBar = ({ logo, companyName = 'Company Name' }) => {
 		<div className="relative bg-indigo-100 w-screen h-[130px] shrink-0 overflow-hidden text-center text-lg text-white font-roboto">
 			<div className="absolute top-[45px] left-1/3 w-1/2 flex flex-row items-center justify-between">
 				<a
-					href="Dashboard"
-					
-					className="[text-decoration:none] relative w-1/4 h-[41px] top-[calc(50%_-_20.5px)] flex flex-row p-[11px_25px] box-border items-center justify-center text-[inherit]">
+					href=""
+					className="[text-decoration:none] relative w-1/4 h-[41px] top-[calc(50%_-_20.5px)] flex flex-row p-[11px_25px] box-border items-center justify-center text-[inherit]"
+					onClick={onFrameLink2Click}>
 					<div className="relative font-black inline-block">Dashboard</div>
 				</a>
 				<a
-					href="Team Members"
+					
 					className="[text-decoration:none] relative w-1/4 h-[41px] top-[calc(50%_-_20.5px)] right-[-4%] left-[-4%] flex flex-row  box-border items-center justify-center text-[inherit]"
 					onClick={onFrameLink3Click}>
 					<div className="relative inline-block">Team Members</div>
