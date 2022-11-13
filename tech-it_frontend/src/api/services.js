@@ -12,3 +12,25 @@ export const post = async (urlParams, params = {}) => {
 		throw new Error(buildErrorMessage(error));
 	}
 };
+
+export const get = async (urlParams, params = {}) => {
+	let { resource, action } = urlParams;
+	try {
+		const response = await axios.get(`${API_ENDPOINT}/api/${resource}/${action}`, {
+			params: params
+		});
+		return response.data;
+	} catch (error) {
+		throw new Error(buildErrorMessage(error));
+	}
+};
+
+export const update = async (urlParams, params) => {
+	let { resource, action } = urlParams;
+	try {
+		const response = await axios.put(`${API_ENDPOINT}/api/${resource}/${action}`, params);
+		return response;
+	} catch (error) {
+		throw new Error(buildErrorMessage(error));
+	}
+};
