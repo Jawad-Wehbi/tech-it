@@ -1,6 +1,7 @@
 import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
 import CompanySignUp from './pages/CompanySignUp';
 import TeamMembers from './pages/TeamMembers';
+import Tests from './pages/Tests';
 
 import SignIn from './pages/SignIn';
 import NavigationBar from './components/Utilities/NavigationBar';
@@ -36,6 +37,16 @@ function App() {
 					element={
 						<Layout>
 							<TeamMembers />
+						</Layout>
+					}
+				/>
+
+				<Route
+					exact
+					path="/Tests"
+					element={
+						<Layout>
+							<Tests />
 						</Layout>
 					}
 				/>
