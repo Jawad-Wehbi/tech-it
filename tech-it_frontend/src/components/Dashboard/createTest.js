@@ -1,7 +1,10 @@
 import { Grid, Container, Paper, Box, Typography, Stack, Button } from '@mui/material';
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CreateTest = () => {
+	const navigate = useNavigate();
+
 	return (
 		<>
 			<Container maxWidth={false} disableGutters>
@@ -19,7 +22,10 @@ const CreateTest = () => {
 						<Button
 							variant="contained"
 							style={{ width: 300, height: 40 }}
-							sx={{ mr: 5, bgcolor: '#9747FF' }}>
+							sx={{ mr: 5, bgcolor: '#9747FF' }}
+							onClick={() => {
+								navigate('/Tests');
+							}}>
 							Create
 						</Button>
 					</Stack>
