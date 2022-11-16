@@ -121,6 +121,34 @@ const addCodingQuestion = async (data) => {
     }
   });
 };
+const addMcqQuestion = async (data) => {
+  return new Promise(async (resolve, reject) => {
+    const { question_title, max_score, customized, question_details, topic, answer, is_correct } =
+      data;
+    try {
+      console.log("data :>> ", data);
+      const question = await prisma.questions.create({
+        include: {
+          mcq_answers: true,
+        },
+        data: {
+          question_title,
+          max_score,
+          customized,
+          question_details,
+          topic,
+          mcq_answers: {
+            create: { answer, is_correct }
+          }
+        }
+      });
+      resolve(question);
+    } catch (e) {
+      console.error("--------> MCQ Question Addition rejected: ", e);
+      reject(e);
+    }
+  });
+};
 
 module.exports = {
   getAlltests,
@@ -129,4 +157,6 @@ module.exports = {
   addTeamMember,
   deleteTeamMember,
   addCodingQuestion,
+  addMcqQuestion,
+
 };
