@@ -93,6 +93,34 @@ const deleteTeamMember = async ({ id }) => {
     }
   });
 };
+const addCodingQuestion = async (data) => {
+  return new Promise(async (resolve, reject) => {
+    const { question_title, max_score, customized, question_details, topic, coding_answer } =
+      data;
+    try {
+      console.log("data :>> ", data);
+      const question = await prisma.questions.create({
+        include: {
+          coding_answers: true,
+        },
+        data: {
+          question_title,
+          max_score,
+          customized,
+          question_details,
+          topic,
+          coding_answers: {
+            create: { coding_answer}
+          }
+        }
+      });
+      resolve(question);
+    } catch (e) {
+      console.error("--------> Coding Question Addition rejected: ", e);
+      reject(e);
+    }
+  });
+};
 
 module.exports = {
   getAlltests,
@@ -100,5 +128,5 @@ module.exports = {
   getCompanyInfo,
   addTeamMember,
   deleteTeamMember,
-
+  addCodingQuestion,
 };
