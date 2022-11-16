@@ -9,6 +9,8 @@ router.post('/getQuestionsByTopic', company.getQuestionsByTopic);
 router.post('/getCompanyInfo', company.getCompanyInfo);
 // addTeamMember
 router.post('/addTeamMember', company.addTeamMember);
+// deleteTeamMember
+router.delete('/deleteTeamMember', company.deleteTeamMember);
 
 
 module.exports = router;
