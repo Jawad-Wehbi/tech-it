@@ -15,7 +15,21 @@ const getAlltests = async (topic) => {
     }
   });
 };
+const getQuestionsByTopic = async ({ topic }) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const questions = await prisma.questions.findMany({
+        where: { topic },
+      });
+      resolve(questions);
+    } catch (err) {
+      console.error("--------> Can't get questions: ", err);
+      reject(err);
+    }
+  });
+};
 
 module.exports = {
   getAlltests,
+  getQuestionsByTopic,
 };
