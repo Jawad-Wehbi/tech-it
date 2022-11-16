@@ -1,5 +1,7 @@
-// const router = require('express').Router();
-// const user = require('../controllers/user.controller');
+const router = require('express').Router();
+const user = require('../controllers/user.controller');
 
-// // getallmembers
-// router.get('/getallmembers', user.getAllMembers);
+// getAllMembers
+router.get('/getAllMembers', user.getAllMembers);
+
+module.exports = router;
