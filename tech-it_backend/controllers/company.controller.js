@@ -101,6 +101,17 @@ const editProfile = async (req, res, next) => {
     res.status(400).json(formatFatalError(err));
   }
 };
+const addTest = async (req, res, next) => {
+  try {
+    const addTest = await company.addTest(req.body);
+    res.status(200).json({
+      message: "Test created successfully"
+    });
+  } catch (err) {
+    console.log("e :>> ", err);
+    res.status(400).json(formatFatalError(err));
+  }
+};
 
 module.exports={
   getAlltests,  
@@ -111,6 +122,7 @@ module.exports={
   addCodingQuestion,
   addMcqQuestion,
   editProfile,
+  addTest
 
 
 } 
