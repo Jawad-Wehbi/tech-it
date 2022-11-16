@@ -11,6 +11,8 @@ router.post('/getCompanyInfo', company.getCompanyInfo);
 router.post('/addTeamMember', company.addTeamMember);
 // deleteTeamMember
 router.delete('/deleteTeamMember', company.deleteTeamMember);
+// addMcqQuestion
+router.post('/addMcqQuestion', company.addMcqQuestion);
 
 
 module.exports = router;
