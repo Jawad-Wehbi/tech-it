@@ -30,10 +30,24 @@ const getQuestionsByTopic = async (req, res, next) => {
     res.status(400).json(formatFatalError(err));
   }
 };
+const getCompanyInfo = async (req, res, next) => {
+  try {
+    const id = req.body.id;
+    const tests = await company.getCompanyInfo(id);
+    res.status(200).json({
+      message: "Company info shown successfully",
+      data: tests,
+    });
+  } catch (err) {
+    console.log("e :>> ", err);
+    res.status(400).json(formatFatalError(err));
+  }
+};
 
 module.exports={
   getAlltests,  
   getQuestionsByTopic,
+  getCompanyInfo,
 
 
 } 
