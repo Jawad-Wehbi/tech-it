@@ -15,6 +15,8 @@ router.delete('/deleteTeamMember', company.deleteTeamMember);
 router.post('/addMcqQuestion', company.addMcqQuestion);
 // addCodingQuestion
 router.post('/addCodingQuestion', company.addCodingQuestion);
+// editProfile
+router.post('/editProfile', company.editProfile);
 
 
 module.exports = router;
