@@ -149,6 +149,22 @@ const addMcqQuestion = async (data) => {
     }
   });
 };
+const editProfile = async (data) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const updateUser = await prisma.user.update({
+        where: {
+          id: data.id,
+        },
+        data,
+      });
+      resolve(updateUser);
+    } catch (e) {
+      console.error("--------> User update rejected: ", e);
+      reject(e);
+    }
+  });
+};
 
 module.exports = {
   getAlltests,
@@ -158,5 +174,7 @@ module.exports = {
   deleteTeamMember,
   addCodingQuestion,
   addMcqQuestion,
+  editProfile,
+
 
 };
