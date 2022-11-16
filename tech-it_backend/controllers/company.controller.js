@@ -43,11 +43,24 @@ const getCompanyInfo = async (req, res, next) => {
     res.status(400).json(formatFatalError(err));
   }
 };
+const addTeamMember = async (req, res, next) => {
+  try {
+    const addMember = await company.addTeamMember(req.body);
+    res.status(200).json({
+      message: "Assignee created successfully"
+    });
+  } catch (err) {
+    console.log("e :>> ", err);
+    res.status(400).json(formatFatalError(err));
+  }
+};
 
 module.exports={
   getAlltests,  
   getQuestionsByTopic,
   getCompanyInfo,
+  addTeamMember,
+
 
 
 } 
