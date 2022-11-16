@@ -5,6 +5,8 @@ const company = require('../controllers/company.controller');
 router.get('/getalltests', company.getAlltests);
 // getQuestionsByTopic
 router.post('/getQuestionsByTopic', company.getQuestionsByTopic);
+// getcompanyinfo
+router.post('/getCompanyInfo', company.getCompanyInfo);
 
 
 module.exports = router;
