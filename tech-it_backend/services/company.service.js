@@ -28,8 +28,27 @@ const getQuestionsByTopic = async ({ topic }) => {
     }
   });
 };
+const getCompanyInfo = async (id) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const company = await prisma.users.findFirst({
+        where: {
+          user_type: "COMPANY",
+          id,
+        },
+        include: { companies: true },
+      });
+      resolve(company);
+    } catch (e) {
+      console.error("--------> Can't get Company Information: ", e);
+      reject(err);
+    }
+  });
+};
 
 module.exports = {
   getAlltests,
   getQuestionsByTopic,
+  getCompanyInfo,
+
 };
