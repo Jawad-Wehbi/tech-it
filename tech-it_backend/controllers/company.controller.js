@@ -89,6 +89,18 @@ const addMcqQuestion = async (req, res, next) => {
     res.status(400).json(formatFatalError(err));
   }
 };
+const editProfile = async (req, res, next) => {
+  try {
+    const editProfile = await company.editProfile(req.body);
+    res.status(200).json({
+      message: "Profile edited successfully",
+      data: req.body
+    }); 
+  } catch (err) {
+    console.log("e :>> ", err);
+    res.status(400).json(formatFatalError(err));
+  }
+};
 
 module.exports={
   getAlltests,  
@@ -98,6 +110,7 @@ module.exports={
   deleteTeamMember,
   addCodingQuestion,
   addMcqQuestion,
+  editProfile,
 
 
 } 
