@@ -65,6 +65,18 @@ const deleteTeamMember = async (req, res, next) => {
     res.status(400).json(formatFatalError(err));
   }
 };
+const addCodingQuestion = async (req, res, next) => {
+  try {
+    const addCodingQuestion = await company.addCodingQuestion(req.body);
+    res.status(200).json({
+      message: "Coding Question created successfully",
+      data: req.body
+    }); 
+  } catch (err) {
+    console.log("e :>> ", err);
+    res.status(400).json(formatFatalError(err));
+  }
+};
 
 module.exports={
   getAlltests,  
@@ -72,6 +84,7 @@ module.exports={
   getCompanyInfo,
   addTeamMember,
   deleteTeamMember,
+  addCodingQuestion,
 
 
 } 
