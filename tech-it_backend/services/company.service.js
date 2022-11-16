@@ -45,10 +45,45 @@ const getCompanyInfo = async (id) => {
     }
   });
 };
+const addTeamMember = async (data) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const {
+        email,
+        name,
+        password,
+        user_type,
+        position,
+        assignee_type,
+        company_id,
+      } = data;
+      const addUserInfo = await prisma.users.create({
+        include: {
+          assignees: true,
+        },
+        data: {
+          email,
+          name,
+          password,
+          user_type,
+          assignees: {
+            create: { position, assignee_type, company_id },
+          },
+        },
+      });
+      resolve("User Created");
+    } catch (e) {
+      console.error("--------> Team Member Addition rejected: ", e);
+      reject(e);
+    }
+  });
+};
 
 module.exports = {
   getAlltests,
   getQuestionsByTopic,
   getCompanyInfo,
+  addTeamMember,
+
 
 };
