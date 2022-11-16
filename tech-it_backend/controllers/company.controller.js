@@ -77,6 +77,18 @@ const addCodingQuestion = async (req, res, next) => {
     res.status(400).json(formatFatalError(err));
   }
 };
+const addMcqQuestion = async (req, res, next) => {
+  try {
+    const addMcqQuestion = await company.addMcqQuestion(req.body);
+    res.status(200).json({
+      message: "MCQ Question created successfully",
+      data: req.body
+    }); 
+  } catch (err) {
+    console.log("e :>> ", err);
+    res.status(400).json(formatFatalError(err));
+  }
+};
 
 module.exports={
   getAlltests,  
@@ -85,6 +97,7 @@ module.exports={
   addTeamMember,
   deleteTeamMember,
   addCodingQuestion,
+  addMcqQuestion,
 
 
 } 
