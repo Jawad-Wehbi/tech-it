@@ -78,12 +78,27 @@ const addTeamMember = async (data) => {
     }
   });
 };
+const deleteTeamMember = async ({ id }) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const deleteMemeber = await prisma.users.delete({
+        where: {
+          id,
+        },
+      });
+      resolve(deleteMemeber);
+    } catch (e) {
+      console.error("--------> Team Member Deletion rejected: ", e);
+      reject(e);
+    }
+  });
+};
 
 module.exports = {
   getAlltests,
   getQuestionsByTopic,
   getCompanyInfo,
   addTeamMember,
-
+  deleteTeamMember,
 
 };
