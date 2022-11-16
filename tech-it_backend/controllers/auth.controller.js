@@ -1,17 +1,22 @@
 const auth = require("../services/auth.service");
-const createError = require("http-errors");
+
+const formatFatalError = (err) => {
+  return {
+    fail: err,
+  };
+};
+
 const register = async (req, res, next) => {
   try {
     const user = await auth.register(req.body);
     res.status(200).json({
-      status: "",
       message: "User created successfully",
-      data: user,
+      accessToken: user.accessToken,
+      id: user.id
     });
-    // res.status(200);
-  } catch (e) {
-    console.log("e :>> ", e);
-    next(createError(e.statusCode, e.message));
+  } catch (err) {
+    console.log("e :>> ", err);
+    res.status(400).json(formatFatalError(err));
   }
 };
 const login = async (req, res, next) => {
@@ -22,26 +27,12 @@ const login = async (req, res, next) => {
       message: "Account login successful",
       data,
     });
-  } catch (e) {
-    console.log("e :>> ", e);
-
-    next(createError(e.statusCode, e.message));
-  }
-};
-const all = async (req, res, next) => {
-  try {
-    const users = await auth.all();
-    res.status(200).json({
-      status: true,
-      message: "All users",
-      data: users,
-    });
-  } catch (e) {
-    next(createError(e.statusCode, e.message));
+  } catch (err) {
+    console.log("e :>> ", err);
+    res.status(400).json(formatFatalError(err));
   }
 };
 module.exports = {
   register,
-  login,
-  all,
+  login
 };
