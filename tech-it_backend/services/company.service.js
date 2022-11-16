@@ -165,6 +165,29 @@ const editProfile = async (data) => {
     }
   });
 };
+const addTest = async (data) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const {
+        topic,
+        test_title,
+        test_details
+      } = data;
+      const addTest = await prisma.tests.create({
+        data: {
+          topic,
+          test_title,
+          test_details
+        },
+      });
+      resolve("Test Created");
+    } catch (e) {
+      console.error("--------> Team Member Addition rejected: ", e);
+      reject(e);
+    }
+  });
+};
+
 
 module.exports = {
   getAlltests,
@@ -175,6 +198,6 @@ module.exports = {
   addCodingQuestion,
   addMcqQuestion,
   editProfile,
-
+  addTest
 
 };
