@@ -7,6 +7,8 @@ router.get('/getalltests', company.getAlltests);
 router.post('/getQuestionsByTopic', company.getQuestionsByTopic);
 // getcompanyinfo
 router.post('/getCompanyInfo', company.getCompanyInfo);
+// addTeamMember
+router.post('/addTeamMember', company.addTeamMember);
 
 
 module.exports = router;
