@@ -17,6 +17,7 @@ router.post('/addMcqQuestion', company.addMcqQuestion);
 router.post('/addCodingQuestion', company.addCodingQuestion);
 // editProfile
 router.post('/editProfile', company.editProfile);
-
+// addTest
+router.post('/addTest', company.addTest);
 
 module.exports = router;
