@@ -13,6 +13,8 @@ router.post('/addTeamMember', company.addTeamMember);
 router.delete('/deleteTeamMember', company.deleteTeamMember);
 // addMcqQuestion
 router.post('/addMcqQuestion', company.addMcqQuestion);
+// addCodingQuestion
+router.post('/addCodingQuestion', company.addCodingQuestion);
 
 
 module.exports = router;
