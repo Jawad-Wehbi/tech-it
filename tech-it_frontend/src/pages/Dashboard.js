@@ -1,4 +1,4 @@
-import { Grid, Container, Paper, Box } from '@mui/material';
+import { Grid, Container} from '@mui/material';
 import * as React from 'react';
 import CreateTest from '../components/Dashboard/createTest';
 import SlideShow from '../components/Dashboard/slideShow';
@@ -8,17 +8,20 @@ const Dashboard = () => {
 	return (
 		<>
 			<Container maxWidth={false} disableGutters>
-				<Grid container>
-					<Grid item xs={12} md={12}>
+				<Grid container justifyContent="center">
+					<Grid item xs={12} md={12} xl={10}>
 						<SlideShow />
 					</Grid>
 
-					<Grid item xs={12} md={12}>
+					<Grid item xs={12} md={10}>z
 						<CreateTest />
 					</Grid>
 
-					<Grid item xs={12} md={12} sx={{mt: 5}}>
+					<Grid item xs={12} md={10} sx={{mt: 5}}>
 						<Topics />
+					</Grid>
+					<Grid item xs={12} md={12} xl={10} sx={{mt: 5}}>
+					<img src="../Steps.jpg" alt="Steps" />
 					</Grid>
 				</Grid>
 			</Container>
