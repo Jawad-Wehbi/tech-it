@@ -3,6 +3,7 @@ import CompanySignUp from './pages/CompanySignUp';
 import TeamMembers from './pages/TeamMembers';
 import Tests from './pages/Tests';
 import QuestionsList from './pages/QuestionsList';
+import AssigneeDashboard from './pages/AssigneeDashboard';
 
 import SignIn from './pages/SignIn';
 import NoPage from './pages/NoPage';
@@ -55,6 +56,16 @@ function App() {
 					element={
 						<Layout>
 							<QuestionsList  />
+						</Layout>
+					}
+				/>
+
+				<Route
+					exact
+					path="/AssigneeDashboard"
+					element={
+						<Layout>
+							<AssigneeDashboard  />
 						</Layout>
 					}
 				/>
