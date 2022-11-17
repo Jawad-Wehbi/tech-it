@@ -45,7 +45,6 @@ const Layout = ({ children }) => {
 				<Grid item xs={12}> */}
 					<Box
 						component="main"
-						maxWidth="xxl"
 						sx={{
 							backgroundColor: (theme) =>
 								theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[900],
