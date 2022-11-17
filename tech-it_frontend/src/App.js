@@ -1,12 +1,10 @@
-import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import CompanySignUp from './pages/CompanySignUp';
 import TeamMembers from './pages/TeamMembers';
 import Tests from './pages/Tests';
+import QuestionsList from './pages/QuestionsList';
 
 import SignIn from './pages/SignIn';
-import NavigationBar from './components/Utilities/NavigationBar';
-import Footer from './components/Utilities/Footer';
-import { ProtectedRoute } from './helpers/PrivateRoute';
 import NoPage from './pages/NoPage';
 import Layout from './layout/Layout';
 import '@fontsource/roboto/300.css';
@@ -47,6 +45,16 @@ function App() {
 					element={
 						<Layout>
 							<Tests />
+						</Layout>
+					}
+				/>
+
+				<Route
+					exact
+					path="/Questions"
+					element={
+						<Layout>
+							<QuestionsList  />
 						</Layout>
 					}
 				/>
