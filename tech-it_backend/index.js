@@ -13,6 +13,9 @@ const userRoutes = require("./routes/user.route");
 app.use("/user", auth, userRoutes);
 const companyRoutes = require("./routes/company.route");
 app.use("/company", auth, companyRoutes);
+const assigneeRoutes = require("./routes/assignee.route");
+app.use("/assignee", auth, assigneeRoutes);
+
 
 app.listen(process.env.PORT, (err) => {
   if (err) throw err;
