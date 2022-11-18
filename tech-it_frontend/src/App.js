@@ -4,6 +4,7 @@ import TeamMembers from './pages/TeamMembers';
 import Tests from './pages/Tests';
 import QuestionsList from './pages/QuestionsList';
 import AssigneeDashboard from './pages/AssigneeDashboard';
+import McqQuestion from './pages/McqQuestion';
 
 import SignIn from './pages/SignIn';
 import NoPage from './pages/NoPage';
@@ -66,6 +67,16 @@ function App() {
 					element={
 						<Layout>
 							<AssigneeDashboard  />
+						</Layout>
+					}
+				/>
+
+				<Route
+					exact
+					path="/McqQuestion"
+					element={
+						<Layout footer={false}>
+							<McqQuestion  />
 						</Layout>
 					}
 				/>
