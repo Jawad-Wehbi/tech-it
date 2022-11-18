@@ -152,7 +152,6 @@ model coding_assignee_answers {
 model mcq_selected_choices {
   id                 Int              @id @unique @default(autoincrement())
   selected_choice    String           @db.VarChar(255)
-  output             String           @db.VarChar(500)
   assignee_answer_id Int              @unique
   assignee_answer    assignee_answers @relation(fields: [assignee_answer_id], references: [id], onDelete: Cascade)
 }
