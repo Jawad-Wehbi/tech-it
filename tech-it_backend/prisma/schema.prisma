@@ -9,6 +9,7 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
 //  create enum_user_types
 enum user_type {
   COMPANY
@@ -45,15 +46,16 @@ enum topic {
 
 //  create table_Users
 model Users {
-  id        Int        @id @default(autoincrement())
-  companies companies?
-  assignees assignees?
-  email     String     @unique
-  name      String
-  password  String
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @default(now())
-  user_type user_type
+  id            Int            @id @default(autoincrement())
+  companies     companies?
+  assignees     assignees?
+  email         String         @unique
+  name          String
+  password      String
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @default(now())
+  user_type     user_type
+  Notifications Notifications?
 }
 
 // create table_companies
@@ -175,9 +177,19 @@ model coding_answers {
 
 // create table_mcq_answers
 model mcq_answers {
-  id          Int       @id @unique @default(autoincrement())
-  mcq_answer  String    @db.VarChar(2000)
-  is_correct  Boolean   @default(false)
-  question_id Int       @unique
-  question    questions @relation(fields: [question_id], references: [id], onDelete: Cascade)
+  id              Int       @id @unique @default(autoincrement())
+  mcq_answer1     String    @db.VarChar(200)
+  mcq_answer2     String    @db.VarChar(200)
+  mcq_answer3     String    @db.VarChar(200)
+  correct_answer4 String    @db.VarChar(200)
+  question_id     Int       @unique
+  question        questions @relation(fields: [question_id], references: [id], onDelete: Cascade)
+}
+
+// create table_mcq_answers
+model Notifications {
+  id                Int    @id @unique @default(autoincrement())
+  NotificationsBody String @db.VarChar(200)
+  user_id           Int    @unique
+  user              Users  @relation(fields: [user_id], references: [id], onDelete: Cascade)
 }
