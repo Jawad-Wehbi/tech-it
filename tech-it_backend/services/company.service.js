@@ -95,8 +95,14 @@ const deleteTeamMember = async ({ id }) => {
 };
 const addCodingQuestion = async (data) => {
   return new Promise(async (resolve, reject) => {
-    const { question_title, max_score, customized, question_details, topic, coding_answer } =
-      data;
+    const {
+      question_title,
+      max_score,
+      customized,
+      question_details,
+      topic,
+      coding_answer,
+    } = data;
     try {
       console.log("data :>> ", data);
       const question = await prisma.questions.create({
@@ -110,9 +116,9 @@ const addCodingQuestion = async (data) => {
           question_details,
           topic,
           coding_answers: {
-            create: { coding_answer}
-          }
-        }
+            create: { coding_answer },
+          },
+        },
       });
       resolve(question);
     } catch (e) {
@@ -123,8 +129,17 @@ const addCodingQuestion = async (data) => {
 };
 const addMcqQuestion = async (data) => {
   return new Promise(async (resolve, reject) => {
-    const { question_title, max_score, customized, question_details, topic, answer, is_correct } =
-      data;
+    const {
+      question_title,
+      max_score,
+      customized,
+      question_details,
+      topic,
+      mcq_answer1,
+      mcq_answer2,
+      mcq_answer3,
+      correct_answer4,
+    } = data;
     try {
       console.log("data :>> ", data);
       const question = await prisma.questions.create({
@@ -138,9 +153,9 @@ const addMcqQuestion = async (data) => {
           question_details,
           topic,
           mcq_answers: {
-            create: { answer, is_correct }
-          }
-        }
+            create: { mcq_answer1, mcq_answer2, mcq_answer3, correct_answer4 },
+          },
+        },
       });
       resolve(question);
     } catch (e) {
@@ -168,16 +183,12 @@ const editProfile = async (data) => {
 const addTest = async (data) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const {
-        topic,
-        test_title,
-        test_details
-      } = data;
+      const { topic, test_title, test_details } = data;
       const addTest = await prisma.tests.create({
         data: {
           topic,
           test_title,
-          test_details
+          test_details,
         },
       });
       resolve("Test Created");
@@ -188,7 +199,6 @@ const addTest = async (data) => {
   });
 };
 
-
 module.exports = {
   getAlltests,
   getQuestionsByTopic,
@@ -198,6 +208,5 @@ module.exports = {
   addCodingQuestion,
   addMcqQuestion,
   editProfile,
-  addTest
-
+  addTest,
 };
