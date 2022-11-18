@@ -13,7 +13,7 @@ const Dashboard = () => {
 						<SlideShow />
 					</Grid>
 
-					<Grid item xs={12} md={10}>z
+					<Grid item xs={12} md={10}>
 						<CreateTest />
 					</Grid>
 

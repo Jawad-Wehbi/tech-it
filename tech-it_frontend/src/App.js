@@ -5,6 +5,7 @@ import Tests from './pages/Tests';
 import QuestionsList from './pages/QuestionsList';
 import AssigneeDashboard from './pages/AssigneeDashboard';
 import McqQuestion from './pages/McqQuestion';
+import CondingQuestion from './pages/CondingQuestion';
 
 import SignIn from './pages/SignIn';
 import NoPage from './pages/NoPage';
@@ -77,6 +78,15 @@ function App() {
 					element={
 						<Layout footer={false}>
 							<McqQuestion  />
+						</Layout>
+					}
+				/>
+				<Route
+					exact
+					path="/CondingQuestion"
+					element={
+						<Layout footer={false}>
+							<CondingQuestion  />
 						</Layout>
 					}
 				/>
