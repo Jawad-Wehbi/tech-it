@@ -24,7 +24,7 @@ import TextField from '@mui/material/TextField';
 import NavigationBar from '../components/Utilities/NavigationBar';
 import Footer from '../components/Utilities/Footer';
 
-const Layout = ({ children }) => {
+const Layout = ({ footer=true, children }) => {
 	const [open, setOpen] = React.useState(true);
 	const toggleDrawer = () => {
 		setOpen(!open);
@@ -37,27 +37,29 @@ const Layout = ({ children }) => {
 
 	return (
 		<>
-			<Grid container sx={{height: '100%'}}>
+			<Grid container sx={{ height: '100%' }}>
 				{/* <Grid item xs={12}> */}
-					<NavigationBar />
+				<NavigationBar />
 				{/* </Grid>
 
 				<Grid item xs={12}> */}
-					<Box
-						component="main"
-						sx={{
-							backgroundColor: (theme) =>
-								theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[900],
-							flexGrow: 1,
-							height: '86.6vh',
-							overflow: 'auto'
-						}}>
-						<Container maxWidth={false} disableGutters>
-								
-								<Grid container>{children}</Grid>
-								<Footer sx={{ alignItems: 'flex-end' }} />
-						</Container>
-					</Box>
+				<Box
+					component="main"
+					height="86.6vh"
+					display="flex"
+					flexDirection="column"
+					sx={{
+						backgroundColor: (theme) =>
+							theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[900],
+						flexGrow: 1,
+						height: '86.6vh',
+						overflow: 'auto'
+					}}>
+					<Container maxWidth={false} disableGutters>
+						<Grid container>{children}</Grid>
+						{footer && <Footer sx={{ alignItems: 'flex-end' }} />}
+					</Container>
+				</Box>
 				{/* </Grid> */}
 			</Grid>
 		</>
