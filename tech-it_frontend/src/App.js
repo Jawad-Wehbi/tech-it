@@ -34,6 +34,7 @@ const dark = {
 
 function App() {
 	const [isDarkTheme, setIsDarkTheme] = useState(false);
+	const [user_type, set_user_type] = useState(localStorage.getItem('user_type'));
 
 	useEffect(() => {
 		setIsDarkTheme(JSON.parse(window.localStorage.getItem('isDarkTheme')));
@@ -54,18 +55,30 @@ function App() {
 			
 		<BrowserRouter>
 			<Routes>
-				{/* <Route exact path="/" element={<ProtectedRoute />}> */}
-				{/* <Route exact path="/navigation-bar" element={<NavigationBar />} /> */}
-				<Route
-					exact
-					path="/"
-					element={
-						<Layout>
-							<Dashboard />
-						</Layout>
-					}
-				/>
-
+					{/* <Route exact path="/" element={<ProtectedRoute />}>   'x'.isInt ? '': ''     */}
+					{/* <Route exact path="/navigation-bar" element={<NavigationBar />} /> */}
+					{user_type === 'COMPANY' ? (
+						<Route
+							exact
+							path="/"
+							element={
+								<Layout checked={isDarkTheme} onChange={changeTheme}>
+									<Dashboard />
+								</Layout>
+							}
+						/>
+					) : (
+						<Route
+							exact
+							path="/"
+							element={
+								<Layout checked={isDarkTheme} onChange={changeTheme}>
+									<AssigneeDashboard />
+								</Layout>
+							}
+						/>
+					)}
+					
 				<Route
 					exact
 					path="/TeamMembers"
@@ -92,16 +105,6 @@ function App() {
 					element={
 						<Layout>
 							<QuestionsList  />
-						</Layout>
-					}
-				/>
-
-				<Route
-					exact
-					path="/AssigneeDashboard"
-					element={
-						<Layout>
-							<AssigneeDashboard  />
 						</Layout>
 					}
 				/>
