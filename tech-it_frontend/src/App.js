@@ -38,7 +38,7 @@ function App() {
 
 	useEffect(() => {
 		setIsDarkTheme(JSON.parse(window.localStorage.getItem('isDarkTheme')));
-		set_user_type(localStorage.getItem('user_type'))
+		set_user_type(localStorage.getItem('user_type'));
 	}, []);
 
 	useEffect(() => {
@@ -52,9 +52,8 @@ function App() {
 		<ThemeProvider theme={isDarkTheme ? createTheme(dark) : createTheme(light)}>
 			<CssBaseline />
 
-			
-		<BrowserRouter>
-			<Routes>
+			<BrowserRouter>
+				<Routes>
 					{/* <Route exact path="/" element={<ProtectedRoute />}>   'x'.isInt ? '': ''     */}
 					{/* <Route exact path="/navigation-bar" element={<NavigationBar />} /> */}
 					{user_type === 'COMPANY' ? (
@@ -78,64 +77,68 @@ function App() {
 							}
 						/>
 					)}
-					
-				<Route
-					exact
-					path="/TeamMembers"
-					element={
-						<Layout>
-							<TeamMembers />
-						</Layout>
-					}
-				/>
+					<Route
+						exact
+						path="/TeamMembers"
+						element={
+							<Layout>
+								<TeamMembers />
+							</Layout>
+						}
+					/>
+					<Route
+						exact
+						path="/Exam"
+						element={
+							<Layout footer={false} checked={isDarkTheme} onChange={changeTheme}>
+								<Exam />
+							</Layout>
+						}
+					/>
+					<Route
+						exact
+						path="/Tests"
+						element={
+							<Layout>
+								<Tests />
+							</Layout>
+						}
+					/>
+					<Route
+						exact
+						path="/Questions"
+						element={
+							<Layout>
+								<QuestionsList />
+							</Layout>
+						}
+					/>
+					<Route
+						exact
+						path="/McqQuestion"
+						element={
+							<Layout footer={false}>
+								<McqQuestion />
+							</Layout>
+						}
+					/>
+					<Route
+						exact
+						path="/CodingQuestion"
+						element={
+							<Layout footer={false}>
+								<CodingQuestion />
+							</Layout>
+						}
+					/>
+					<Route path="*" element={<NoPage />} />
+					{/* </Route> */}
 
-				<Route
-					exact
-					path="/Tests"
-					element={
-						<Layout>
-							<Tests />
-						</Layout>
-					}
-				/>
-
-				<Route
-					exact
-					path="/Questions"
-					element={
-						<Layout>
-							<QuestionsList  />
-						</Layout>
-					}
-				/>
-
-				<Route
-					exact
-					path="/McqQuestion"
-					element={
-						<Layout footer={false}>
-							<McqQuestion  />
-						</Layout>
-					}
-				/>
-				<Route
-					exact
-					path="/CondingQuestion"
-					element={
-						<Layout footer={false}>
-							<CodingQuestion  />
-						</Layout>
-					}
-				/>
-
-				<Route path="*" element={<NoPage />} />
-				{/* </Route> */}
-
-				{/* Non-Protected Paths */}
-				<Route exact path="/sign-up" element={<CompanySignUp />} />
-				<Route exact path="/sign-in" element={<SignIn />} />
-			</Routes>
-		</BrowserRouter>
+					{/* Non-Protected Paths */}
+					<Route exact path="/sign-up" element={<CompanySignUp />} />
+					<Route exact path="/sign-in" element={<SignIn />} />
+				</Routes>
+			</BrowserRouter>
 		</ThemeProvider>
 	);
 }
