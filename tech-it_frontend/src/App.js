@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import CompanySignUp from './pages/CompanySignUp';
 import TeamMembers from './pages/TeamMembers';
@@ -5,7 +6,7 @@ import Tests from './pages/Tests';
 import QuestionsList from './pages/QuestionsList';
 import AssigneeDashboard from './pages/AssigneeDashboard';
 import McqQuestion from './pages/McqQuestion';
-import CondingQuestion from './pages/CondingQuestion';
+import CodingQuestion from './pages/CodingQuestion';
 
 import SignIn from './pages/SignIn';
 import NoPage from './pages/NoPage';
@@ -15,9 +16,42 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Dashboard from './pages/Dashboard';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import Exam from './pages/Exam';
+
+const light = {
+	palette: {
+		mode: 'light'
+	}
+};
+
+const dark = {
+	palette: {
+		mode: 'dark'
+	}
+};
 
 function App() {
+	const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+	useEffect(() => {
+		setIsDarkTheme(JSON.parse(window.localStorage.getItem('isDarkTheme')));
+		set_user_type(localStorage.getItem('user_type'))
+	}, []);
+
+	useEffect(() => {
+		window.localStorage.setItem('isDarkTheme', isDarkTheme);
+	}, [isDarkTheme]);
+
+	const changeTheme = () => {
+		setIsDarkTheme(!isDarkTheme);
+	};
 	return (
+		<ThemeProvider theme={isDarkTheme ? createTheme(dark) : createTheme(light)}>
+			<CssBaseline />
+
+			
 		<BrowserRouter>
 			<Routes>
 				{/* <Route exact path="/" element={<ProtectedRoute />}> */}
@@ -86,7 +120,7 @@ function App() {
 					path="/CondingQuestion"
 					element={
 						<Layout footer={false}>
-							<CondingQuestion  />
+							<CodingQuestion  />
 						</Layout>
 					}
 				/>
@@ -99,6 +133,7 @@ function App() {
 				<Route exact path="/sign-in" element={<SignIn />} />
 			</Routes>
 		</BrowserRouter>
+		</ThemeProvider>
 	);
 }
 
