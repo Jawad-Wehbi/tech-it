@@ -1,9 +1,9 @@
 import { Container, Box, Typography, Stack, Button } from '@mui/material';
-import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useRef } from 'react';
+import TopicDailog from '../TestDailogs/TopicDailog';
 
 const CreateTest = () => {
-	const navigate = useNavigate();
+	const childRef = useRef(null);
 
 	return (
 		<>
@@ -24,10 +24,11 @@ const CreateTest = () => {
 							style={{ width: 300, height: 40 }}
 							sx={{ mr: 5, bgcolor: '#9747FF' }}
 							onClick={() => {
-								navigate('/Tests');
+								childRef.current.handleClickOpen(true);
 							}}>
 							Create
 						</Button>
+						<TopicDailog ref={childRef} />
 					</Stack>
 				</Box>
 			</Container>
