@@ -1,6 +1,5 @@
-import { Paper, Box, Container } from '@mui/material';
 import React from 'react';
-import { Slide, Zoom } from 'react-slideshow-image';
+import { Zoom } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 
 const slideImages = [
@@ -22,9 +21,9 @@ const zoomOutProperties = {
 	duration: 3000,
 	transitionDuration: 500,
 	infinite: true,
-	indicators: false,
+	indicators: true,
 	scale: 0.4,
-	arrows: true
+	arrows: false
 };
 
 const SlideShow = () => {
