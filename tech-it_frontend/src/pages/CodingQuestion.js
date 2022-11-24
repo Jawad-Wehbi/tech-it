@@ -10,7 +10,8 @@ import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import 'ace-builds/src-noconflict/mode-java';
 import 'ace-builds/src-noconflict/theme-github';
 import 'ace-builds/src-noconflict/ext-language_tools';
-import axios from 'axios';
+import axios from '../api/axios';
+import { post } from '../api/services';
 
 const CodingQuestion = (props) => {
 	const { question } = props;
@@ -21,29 +22,45 @@ const CodingQuestion = (props) => {
 		console.log('change', newValue);
 	}
 
-	const submitCode = () => {
+	const submitCode = async () => {
 		// setTimeout(() => {}, 500);
-		const options = {
-			method: 'POST',
-			url: 'https://judge0-ce.p.rapidapi.com/submissions',
-			params: { base64_encoded: 'true', fields: '*' },
-			headers: {
-				'content-type': 'application/json',
+		// const options = {
+		// 	method: 'POST',
+		// 	url: 'https://judge0-ce.p.rapidapi.com/submissions',
+		// 	params: { base64_encoded: 'true', fields: '*' },
+		// 	headers: {
+		// 		'content-type': 'application/json',
+		// 		'Content-Type': 'application/json',
+		// 		'X-RapidAPI-Key': 'd613455b15mshaef4813be67b739p17dacbjsnb05aa0078f36',
+		// 		'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com'
+		// 	}
+		// };
+		let data = {
+			language_id: 52,
+			source_code: `I2luY2x1ZGUgPHN0ZGlvLmg+CgppbnQgbWFpbih2b2lkKSB7CiAgY2hhciBuYW1lWzEwXTsKICBzY2FuZigiJXMiLCBu
+				YW1lKTsKICBwcmludGYoImhlbGxvLCAlc1xuIiwgbmFtZSk7CiAgcmV0dXJuIDA7Cn0=`,
+			stdin: 'SnVkZ2Uw'
+		};
+
+		const response = await axios.post(
+			`https://judge0-ce.p.rapidapi.com/submissionsظ`,
+			data,
+			{
 				'Content-Type': 'application/json',
 				'X-RapidAPI-Key': 'd613455b15mshaef4813be67b739p17dacbjsnb05aa0078f36',
 				'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com'
-			},
-			data: `{"language_id":63,"source_code":${code},"stdin":"SnVkZ2Uw"}`
-		};
+			}
+		);
 
-		axios
-			.request(options)
-			.then(function (response) {
-				console.log(response.data);
-			})
-			.catch(function (error) {
-				console.error(error);
-			});
+		console.log('response :>> ', response);
+		// axios
+		// 	.request(options)
+		// 	.then(function (response) {
+		// 		console.log(response.data);
+		// 	})
+		// 	.catch(function (error) {
+		// 		console.error(error);
+		// 	});
 	};
 
 	return (

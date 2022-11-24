@@ -56,7 +56,7 @@ function App() {
 				<Routes>
 					{/* <Route exact path="/" element={<ProtectedRoute />}>   'x'.isInt ? '': ''     */}
 					{/* <Route exact path="/navigation-bar" element={<NavigationBar />} /> */}
-					{user_type === 'COMPANY' ? (
+					{localStorage.getItem('user_type') === 'COMPANY' ? (
 						<Route
 							exact
 							path="/"
