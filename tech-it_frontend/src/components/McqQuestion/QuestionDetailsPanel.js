@@ -20,7 +20,7 @@ const TestDetailsPanel = (props) => {
 							<Typography
 								sx={{ display: 'inline' }}
 								component="span"
-								variant="body2"
+								variant="body1"
 								color="text.primary">
 								{TestDetails}
 							</Typography>

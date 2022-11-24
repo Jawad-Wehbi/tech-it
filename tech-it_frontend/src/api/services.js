@@ -6,12 +6,13 @@ const token = localStorage.getItem('access_token');
 
 console.log('token :>> ', token);
 
-export const post = async (urlParams, params = {}) => {
+export const post = async (urlParams, params = {}, headers) => {
 	let { resource, action } = urlParams;
 	try {
 		const response = await axios.post(`${API_ENDPOINT}/${resource}/${action}`, params, {
 			headers: {
-				Authorization: `Basic ${token}`
+				Authorization: `Basic ${token}`,
+				...headers
 			}
 		});
 		return response.data;
