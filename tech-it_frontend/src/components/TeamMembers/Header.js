@@ -10,7 +10,7 @@ import {
 	Alert
 } from '@mui/material';
 import React, { useRef, useState } from 'react';
-import AddMemberForm from './AddMember';
+import AddMemberForm from './AddMemberDialog';
 import AssignTestDialog from './AssignTestDialog';
 import Slide from '@mui/material/Slide';
 import Snackbar from '@mui/material/Snackbar';
