@@ -4,10 +4,10 @@ const Title = ({
   BoldTitle = "Tech-It",
 }) => {
   return (
-    <b className="relative inline-block w-full h-fit shrink-0">
-      <h1 className="font-semibold ">{BoldCall}</h1>
-      {PageTitle}
-      <h1 className="font-black">{BoldTitle}</h1>
+    <b className="relative w-fit h-fit justify-start shrink-0 text-xl text-indigo-600	">
+      <h5 className="font-semibold">{BoldCall}</h5>
+      <h5>{PageTitle}</h5>
+      <h5 className=" text-2xl font-black">{BoldTitle}</h5>
     </b>
   );
 };
