@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import React, { useRef, useState } from 'react';
 import AddMemberForm from './AddMember';
-import AssignTestDailog from './AssignTestDailog';
+import AssignTestDialog from './AssignTestDialog';
 import Slide from '@mui/material/Slide';
 import Snackbar from '@mui/material/Snackbar';
 
@@ -84,7 +84,7 @@ const Header = (props) => {
 											}}>
 											Assign Tests
 										</Button>
-										<AssignTestDailog ref={childRef} />
+										<AssignTestDialog ref={childRef} />
 										<Snackbar
 											open={open}
 											severity="success"

@@ -1,6 +1,6 @@
 import { Container, Box, Typography, Stack, Button } from '@mui/material';
 import React, { useRef } from 'react';
-import TopicDailog from '../TestDailogs/TopicDailog';
+import TopicDialog from '../TestDialogs/TopicDialog';
 
 const CreateTest = () => {
 	const childRef = useRef(null);
@@ -28,7 +28,7 @@ const CreateTest = () => {
 							}}>
 							Create
 						</Button>
-						<TopicDailog ref={childRef} />
+						<TopicDialog ref={childRef} />
 					</Stack>
 				</Box>
 			</Container>

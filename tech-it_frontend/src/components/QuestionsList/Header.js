@@ -1,15 +1,15 @@
 import { Grid, Container, Paper, Box, Stack, Toolbar, Button, Typography } from '@mui/material';
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import TestDetailsDailog from './testDetailsDailog';
+import TestDetailsDialog from './testDetailsDialog';
 
 const Header = (props) => {
 	const { topics_selected } = props;
 
 	console.log('topics_selected header :>> ', topics_selected);
 
-	const dailogRef = useRef(null);
- 
+	const dialogRef = useRef(null);
+
 	let str = '';
 
 	const display = topics_selected.map((data, index) => {
@@ -69,13 +69,13 @@ const Header = (props) => {
 											style={{ width: 150, height: 40 }}
 											sx={{ mr: 5, bgcolor: '#9747FF' }}
 											onClick={() => {
-												dailogRef.current.handleClickOpen(true);
+												dialogRef.current.handleClickOpen(true);
 											}}>
 											SUBMIT TEST
 										</Button>
 									</Box>
 								</Stack>
-								<TestDetailsDailog ref={dailogRef} />
+								<TestDetailsDialog ref={dialogRef} />
 							</Paper>
 						</Container>
 					</Grid>
