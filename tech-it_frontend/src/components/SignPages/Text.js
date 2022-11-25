@@ -7,7 +7,7 @@ const Text = ({ haveAnAccount = "Question", link = "Log", nextPage }) => {
     navigate(`/${nextPage}`);
   }, [navigate]);
   return (
-    <div className="flex flex-row p-[13px_111px] box-border items-center justify-center gap-[5px] text-right text-sm text-gray-200 font-roboto">
+    <div className="flex flex-row p-[13px_50px] box-border items-center justify-center gap-[5px] text-right text-sm text-gray-200 font-roboto">
       <p className="m-[0] relative inline-block cursor-default">
         <span>{haveAnAccount}</span>
         <span className="text-violet-100">{` `}</span>
