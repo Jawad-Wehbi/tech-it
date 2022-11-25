@@ -1,7 +1,23 @@
 import { Grid, Container, Paper, Box, Stack, Toolbar, Button, Typography } from '@mui/material';
-import * as React from 'react';
+import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import TestDetailsDailog from './testDetailsDailog';
 
-const Header = () => {
+const Header = (props) => {
+	const { topics_selected } = props;
+
+	console.log('topics_selected header :>> ', topics_selected);
+
+	const dailogRef = useRef(null);
+ 
+	let str = '';
+
+	const display = topics_selected.map((data, index) => {
+		if (index === 0) return str.concat('(' + data + ',');
+		else if (index === topics_selected.length - 1) return str.concat(data + ')');
+		else return str.concat(data + ',');
+	});
+
 	return (
 		<>
 			<Container maxWidth={false} disableGutters>
@@ -29,39 +45,40 @@ const Header = () => {
 											display: 'flex',
 											justifyContent: 'flex-start'
 										}}>
-										<Toolbar>
-											<Typography variant="h6" align="left" color="#ffffff">
+										<Toolbar
+											sx={{ display: 'flex', justifyItems: 'flex-start', flexDirection: 'column' }}>
+											<Typography variant="h6" sx={{ mr: '78px' }} align="left" color="#ffffff">
 												Questions
 											</Typography>
 											<Typography variant="p" align="left" color="#efefef">
-												(Topic1,Topic2, Topic3)
+												{display}
 											</Typography>
 										</Toolbar>
 									</Box>
 
 									<Box>
-										<Button
+										{/* <Button
 											variant="contained"
 											style={{ width: 150, height: 40 }}
 											sx={{ mr: 5, bgcolor: '#9747FF' }}>
 											NEW QUESTION
-										</Button>
+										</Button> */}
 
 										<Button
 											variant="contained"
 											style={{ width: 150, height: 40 }}
-											sx={{ mr: 5, bgcolor: '#9747FF' }}>
+											sx={{ mr: 5, bgcolor: '#9747FF' }}
+											onClick={() => {
+												dailogRef.current.handleClickOpen(true);
+											}}>
 											SUBMIT TEST
 										</Button>
 									</Box>
 								</Stack>
+								<TestDetailsDailog ref={dailogRef} />
 							</Paper>
 						</Container>
 					</Grid>
-
-					<Grid item xs={12} md={12}></Grid>
-
-					<Grid item xs={12} md={12} sx={{ mt: 5 }}></Grid>
 				</Grid>
 			</Container>
 		</>
