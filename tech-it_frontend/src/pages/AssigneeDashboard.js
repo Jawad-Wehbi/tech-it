@@ -7,18 +7,18 @@ const Dashboard = () => {
 	return (
 		<>
 			<Container maxWidth={false} disableGutters>
-				<Grid container>
-					<Grid item xs={12} md={12}>
+				<Grid container justifyContent='center'>
+					<Grid item xs={12} md={12} lg={10}>
 						<SlideShow />
 					</Grid>
 
-					<Grid item xs={12} md={12}>
+					<Grid item xs={12} md={12} lg={8}>
 						<List>
 							<AssignedTest />
 						</List>
 					</Grid>
 
-					<Grid item xs={12} md={12} sx={{ mt: 5 }}>
+					<Grid item xs={12} md={12} lg={10} sx={{ mt: 5 }}>
 					<img src="../Steps.jpg" alt="Steps" />
 					</Grid>
 				</Grid>
