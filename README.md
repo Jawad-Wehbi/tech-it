@@ -42,9 +42,9 @@
 | -----------------| -----|
 | ![Sign-in](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Sign-in.jpg) | ![Company Dashboard](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Company%20Dashboard.png) |
 
-| Company Tests Page  | Team Members  |
+| Topics Dialog  | Team Members  |
 | -----------------| -----|
-| ![Company Tests Page](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Company%20Tests%20Page.png) | ![Team Members](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Team%20Members.jpg) |
+| ![Topics Dialog](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Company%20Tests%20Page.png) | ![Team Members](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Team%20Members.jpg) |
 
 
 <br><br>
@@ -66,9 +66,29 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 > Uing the above mentioned tecch stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
 
-| Landing  | Home/Search  |
+| Sign-in  | Company Dashboard/DarkMode  |
 | -----------------| -----|
-| ![Landing](https://github.com/julescript/spotifyndr/blob/master/demo/Landing_Page.jpg) | ![Home/Search](https://github.com/julescript/spotifyndr/blob/master/demo/Search_Page.jpg) |
+| ![Sign-in](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Sign_in.gif) | ![Company Dashboard/DarkMode](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Dashboard_dark-mode.gif) |
+
+| Topics Dialog  | Add Team Members  |
+| -----------------| -----|
+| ![TopicsDialog](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/TopicsDialog.gif) | ![Add Team Members](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/AddMember.gif) |
+
+| Assign Test  | Test Details  |
+| -----------------| -----|
+| ![Assign Test](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Assign_Test.gif) | ![Test Details](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/TestDetails.gif) |
+
+| Dark Mode  | Questions Selection  |
+| -----------------| -----|
+| ![Dark Mode](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Dark_Mode.gif) | ![Questions Selection](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Questions_selection.gif) |
+
+| MC Question  | Coding Question{IDE}  |
+| -----------------| -----|
+| ![MC Question](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Test_MCQ.gif) | ![Test Details](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Coding_Question_IDE.gif) |
+
+| Test end  |
+| -----------------| -----|
+| ![Test end (Greeting)](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Test_end.gif) |
 
 
 <br><br>
