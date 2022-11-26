@@ -40,11 +40,11 @@
  
 | Sign-in  | Company Dashboard  |
 | -----------------| -----|
-| ![Landing](readme\Sign-in.jpg) | ![Home/Search](readme\Admin Dashboard.png) |
+| ![Sign-in](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Sign-in.jpg) | ![Company Dashboard](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Company%20Dashboard.png) |
 
-| Artists results  | Artist's Albums  |
+| Company Tests Page  | Team Members  |
 | -----------------| -----|
-| ![Artists results](https://github.com/julescript/spotifyndr/blob/master/demo/Artists_Page.jpg) | ![Artist's Albums](https://github.com/julescript/spotifyndr/blob/master/demo/Albums_Page.jpg) |
+| ![Company Tests Page](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Company%20Tests%20Page.png) | ![Team Members](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Team%20Members.jpg) |
 
 
 <br><br>
