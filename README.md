@@ -38,9 +38,9 @@
 
 > This design was planned before on paper, then moved to Figma app for the fine details.
  
-| Landing  | Home/Search  |
+| Sign-in  | Company Dashboard  |
 | -----------------| -----|
-| ![Landing](https://github.com/julescript/spotifyndr/blob/master/demo/Landing_Page.jpg) | ![Home/Search](https://github.com/julescript/spotifyndr/blob/master/demo/Search_Page.jpg) |
+| ![Landing](readme\Sign-in.jpg) | ![Home/Search](readme\Admin Dashboard.png) |
 
 | Artists results  | Artist's Albums  |
 | -----------------| -----|
