@@ -4,8 +4,8 @@ import Checkbox from '@mui/material/Checkbox';
 
 const BpIcon = styled('span')(({ theme }) => ({
 	borderRadius: 10,
-	width: 16,
-	height: 16,
+	width: 20,
+	height: 20,
 	boxShadow:
 		theme.palette.mode === 'dark'
 			? '0 0 0 1px rgb(16 22 26 / 40%)'
@@ -45,13 +45,13 @@ const BpCheckedIcon = styled(BpIcon)({
 		backgroundColor: '#106ba3'
 	}
 });
-
 // Inspired by blueprintjs
 function CustomCheckBox(props) {
+	const { title, updateTopics } = props;
+
 	return (
 		<Checkbox
 			sx={{
-				width:"16px",
 				'&:hover': { bgcolor: 'transparent' }
 			}}
 			disableRipple
@@ -59,6 +59,10 @@ function CustomCheckBox(props) {
 			checkedIcon={<BpCheckedIcon />}
 			icon={<BpIcon />}
 			inputProps={{ 'aria-label': 'Checkbox demo' }}
+			onChange={() => {
+				if(title === 'Data Structures') updateTopics('Data_Structures'.toUpperCase());
+				else updateTopics(title.toUpperCase());
+			}}
 			{...props}
 		/>
 	);
