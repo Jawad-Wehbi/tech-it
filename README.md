@@ -64,7 +64,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 <br><br>
 <img src="./readme/title5.svg"/>
 
-> Uing the above mentioned tecch stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
+> Using the above-mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
 
 | Sign-in  | Company Dashboard/DarkMode  |
 | -----------------| -----|
@@ -87,7 +87,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 | ![MC Question](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Test_MCQ.gif) | ![Test Details](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Coding_Question_IDE.gif) |
 
 | Test end  |
-| -----------------| -----|
+| -----------------|
 | ![Test end (Greeting)](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Test_end.gif) |
 
 
