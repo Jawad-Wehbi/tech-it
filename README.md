@@ -53,9 +53,11 @@
 
 Here's a brief high-level overview of the tech stack the Well app uses:
 
+- This project uses [NodeJS](https://nodejs.org/en/) and [ExpressJS](https://expressjs.com/). Node.js is an open-source, cross-platform JavaScript runtime environment, and express is a fast, unopinionated, minimalist web framework for Node.js.
 - This project uses [ReactJs](https://reactjs.org/) for the development of the landing page. React is a library for building composable user interfaces. It encourages the creation of reusable UI components, which present data that changes over time.
 - For persistent storage (database), the app uses the [Prisma](https://www.prisma.io/) package which allows the app to create a custom storage schema and save it to [MySQL](https://www.mysql.com/).
-- Moreover, in the map section, we used [Material-UI-core](https://www.npmjs.com/package/@material-ui/core) is simply a library that allows us to import and use different components to create a user interface in our React applications.
+- Used [Docker](https://docs.docker.com/get-started/overview/) to ensure consistency across development and release cycles
+- Moreover, we used [Material-UI-core](https://www.npmjs.com/package/@material-ui/core) is simply a library that allows us to import and use different components to create a user interface in our React applications.
 - The app uses the font [Roboto](https://fonts.google.com/specimen/Roboto) as its main font, and the design of the app adheres to the material design guidelines.
 
 
