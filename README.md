@@ -66,23 +66,23 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 > Uing the above mentioned tecch stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
 
 | Sign-in  | Company Dashboard/DarkMode  |
-| -----------------| -----|
+| ----------| ---------|
 | ![Sign-in](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Sign_in.gif) | ![Company Dashboard/DarkMode](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Dashboard_dark-mode.gif) |
 
 | Topics Dialog  | Add Team Members  |
-| -----------------| -----|
+| ----------| ---------|
 | ![TopicsDialog](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/TopicsDialog.gif) | ![Add Team Members](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/AddMember.gif) |
 
 | Assign Test  | Test Details  |
-| -----------------| -----|
+| ----------| ---------|
 | ![Assign Test](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Assign_Test.gif) | ![Test Details](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/TestDetails.gif) |
 
 | Dark Mode  | Questions Selection  |
-| -----------------| -----|
+| ----------| ---------|
 | ![Dark Mode](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Dark_Mode.gif) | ![Questions Selection](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Questions_selection.gif) |
 
 | MC Question  | Coding Question{IDE}  |
-| -----------------| -----|
+| ----------| ---------|
 | ![MC Question](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Test_MCQ.gif) | ![Test Details](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Coding_Question_IDE.gif) |
 
 | Test end  |
@@ -109,13 +109,13 @@ This is an example of how to list things you need to use the software and how to
   ```sh
   npm install npm@latest -g
   ```
-* Node.js install (Node.js)[https://nodejs.org/en/]
+* Node.js install [Node.js](https://nodejs.org/en/)
 
 ### Installation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-####To Run The React App
+#### To Run The React App
 
 1. Navigate to the frontend folder
    ```sh
@@ -126,7 +126,7 @@ _Below is an example of how you can instruct your audience on installing and set
    docker compose up --build
    ```
 
-####To Run The Server
+#### To Run The Server
 
 1. Navigate to the Backend folder
    ```sh
@@ -137,9 +137,9 @@ _Below is an example of how you can instruct your audience on installing and set
    npm install
    ```
 3. Go to backend folder create a .env file and paste into it
-   ######DATABASE_URL="mysql://root:admin@127.0.0.1:3306/techit"
-   ######ACCESS_TOKEN_SECRET='sasasas'
-   ######PORT=3000
+   ###### DATABASE_URL="mysql://root:admin@127.0.0.1:3306/techit"
+   ###### ACCESS_TOKEN_SECRET='sasasas'
+   ###### PORT=3000
 4. Run the start up command
    ```js
    npm start
