@@ -15,7 +15,6 @@
 
 > Tech-It is your smart way as a company to assess your employees and test the applicants for coding jobs in the new, and higher level aspects in their work. Here we can say no routine during the daily work it's maybe a daiy or a weekly improvement for the employee skills, and in turn for the company progress. 
 > 
-> There are 5 daily tasks that the Well app asks you to complete each day: record 3 gratitudes, write a journal entry, perform 3 acts of kindness, exercise for 20 minutes, and meditate for 15 minutes.
 
 ### Company Stories
 
@@ -87,7 +86,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 | ![MC Question](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Test_MCQ.gif) | ![Test Details](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Coding_Question_IDE.gif) |
 
 | Test end  |
-| -----------------| -----|
+| -----------------|
 | ![Test end (Greeting)](https://github.com/Jawad-Wehbi/tech-it/blob/ReadMe/readme/Test_end.gif) |
 
 
@@ -101,26 +100,48 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
+
+* Clone the repo
+  ```sh
+  git clone https://github.com/Jawad-Wehbi/tech-it
+  ```
 * npm
   ```sh
   npm install npm@latest -g
   ```
+* Node.js install (Node.js)[https://nodejs.org/en/]
 
 ### Installation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+####To Run The React App
+
+1. Navigate to the frontend folder
    ```sh
-   git clone https://github.com/Jawad-Wehbi/tech-it
+   cd tech-it_frontend
    ```
-3. Install NPM packages
+2. Run Docker 
+   ```js
+   docker compose up --build
+   ```
+
+####To Run The Server
+
+1. Navigate to the Backend folder
    ```sh
+   cd tech-it_backend
+   ```
+2. Install NPM packages 
+   ```js
    npm install
    ```
-4. Build Docker 
+3. Go to backend folder create a .env file and paste into it
+   ######DATABASE_URL="mysql://root:admin@127.0.0.1:3306/techit"
+   ######ACCESS_TOKEN_SECRET='sasasas'
+   ######PORT=3000
+4. Run the start up command
    ```js
-   docker run --name DockerFile
+   npm start
    ```
 
